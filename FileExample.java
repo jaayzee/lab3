@@ -41,15 +41,35 @@ public class FileExample {
 	static List<File> getFiles(File start) throws IOException {
 	  File f = start;
 	  List<File> result = new ArrayList<>();
-	  result.add(start);
 	  if(f.isDirectory()) {
 	    File[] paths = f.listFiles();
 	    for(File subFile: paths) {
-	      result.add(subFile);
+        for(File i : (goDeeper(subFile))) {
+          result.add(i);
+        }
 	    }
-	  }
+	  } else {
+      result.add(start);
+    }
 	  return result;
 	}
+
+  static List<File> goDeeper(File initial) {
+    List<File> ans = new ArrayList<>();
+    if (initial.isDirectory()) {
+      File[] deeper = initial.listFiles();
+      for (File deep : deeper) {
+        if (deep.isDirectory()) {
+          goDeeper(deep);
+        } else {
+          ans.add(deep);
+        }
+      }
+    } else {
+    ans.add(initial);
+    }
+    return ans;
+  }
 }
 
 
