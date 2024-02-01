@@ -37,6 +37,17 @@ public class ArrayExamples {
     return sum / (arr.length - 1);
   }
 
-
+  // //ERROR
+  // //SHOULD TAKE THE SUM OF THE TWO LARGEST VALUES
+  // static int[] largeSum(int[] arr) {
+  //   int max1 = 0;
+  //   int max2 = 0;
+  //   for(int i = 0; i < arr.length; i += 1) {
+  //     max1 = Math.max(arr[i], max1);
+  //     arr[i] = 0;
+  //     max2 = Math.max(arr[i], max2);
+  //   }
+  //   return max1 + max2;
+  // }
 }
 
